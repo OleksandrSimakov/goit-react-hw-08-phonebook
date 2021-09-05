@@ -1,13 +1,13 @@
-import ContactAddForm from './ContactAddForm/ContactAddForm'
-import ContactList from './ContactList/ContactList'
-import Filter from './Filter/Filter'
+import ContactAddForm from '../Components/ContactAddForm/ContactAddForm'
+import ContactList from '../Components/ContactList/ContactList'
+import Filter from '../Components/Filter/Filter'
 import { useSelector } from 'react-redux'
 import { useGetContactsQuery } from '../redux/contacts/apiService'
-import { Spinner } from './Spinner/Spinner'
+import { Spinner } from '../Components/Spinner/Spinner'
 import { Toaster } from 'react-hot-toast'
 import { filterSelector } from '../redux/contacts/contacts-selectors'
 
-export default function App() {
+export default function ContactsView() {
   const { data, isFetching } = useGetContactsQuery()
 
   const filter = useSelector(filterSelector)
