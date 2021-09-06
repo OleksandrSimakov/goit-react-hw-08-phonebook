@@ -12,15 +12,9 @@ function ContactListItem({ name, number, onDelBtnClick }) {
   return (
     <ContactListItemEl>
       {name}: {number}
-      {/* <button
-        type="submit"
-        name={name}
-        onClick={onDelBtnClick}
-        style={styles.button}
-      >
-        Удалить
-      </button> */}
       <Button
+        variant="outline-secondary"
+        size="sm"
         type="submit"
         name={name}
         onClick={onDelBtnClick}
