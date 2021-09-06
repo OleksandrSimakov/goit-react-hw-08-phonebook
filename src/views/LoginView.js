@@ -2,17 +2,17 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { authOperations } from '../redux/auth'
 import Button from 'react-bootstrap/Button'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Form } from 'react-bootstrap'
 
 const styles = {
   form: {
     width: 320,
   },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
+  // label: {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   marginBottom: 15,
+  // },
 }
 
 export default function LoginView() {
@@ -43,35 +43,41 @@ export default function LoginView() {
       <Row>
         <Col>
           <div>
-            <h1>Страница логина</h1>
+            <h1>Вход в аккаунт</h1>
 
-            <form
+            <Form
               onSubmit={handleSubmit}
               style={styles.form}
               autoComplete="off"
             >
-              <label style={styles.label}>
-                Почта
-                <input
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Почта</Form.Label>
+
+                <Form.Control
                   type="email"
+                  placeholder="Введите email"
                   name="email"
                   value={email}
                   onChange={handleChange}
                 />
-              </label>
+              </Form.Group>
 
-              <label style={styles.label}>
-                Пароль
-                <input
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Пароль</Form.Label>
+
+                <Form.Control
                   type="password"
+                  placeholder="Введите пароль"
                   name="password"
                   value={password}
                   onChange={handleChange}
                 />
-              </label>
+              </Form.Group>
 
-              <Button type="submit">Войти</Button>
-            </form>
+              <Button variant="primary" type="submit">
+                Войти
+              </Button>
+            </Form>
           </div>
         </Col>
       </Row>

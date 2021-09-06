@@ -2,17 +2,17 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { authOperations } from '../redux/auth'
 import Button from 'react-bootstrap/Button'
-import { Container, Row, Col } from 'react-bootstrap'
+import { Container, Row, Col, Form } from 'react-bootstrap'
 
 const styles = {
   form: {
     width: 320,
   },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
+  // label: {
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   marginBottom: 15,
+  // },
 }
 
 export default function RegisterView() {
@@ -47,9 +47,9 @@ export default function RegisterView() {
       <Row>
         <Col>
           <div>
-            <h1>Страница регистрации</h1>
+            <h1>Регистрация нового пользователя</h1>
 
-            <form
+            {/* <form
               onSubmit={handleSubmit}
               style={styles.form}
               autoComplete="off"
@@ -85,7 +85,49 @@ export default function RegisterView() {
               </label>
 
               <Button type="submit">Зарегистрироваться</Button>
-            </form>
+            </form> */}
+            <Form
+              onSubmit={handleSubmit}
+              style={styles.form}
+              autoComplete="off"
+            >
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Имя контактка</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Введите имя контакта"
+                  name="name"
+                  value={name}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Введите email"
+                  name="email"
+                  value={email}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Пароль</Form.Label>
+                <Form.Control
+                  type="password"
+                  placeholder="Введите пароль"
+                  name="password"
+                  value={password}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
           </div>
         </Col>
       </Row>
