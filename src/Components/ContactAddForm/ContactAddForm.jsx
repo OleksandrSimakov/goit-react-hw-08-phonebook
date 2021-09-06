@@ -2,6 +2,7 @@ import ContactAddFormEl from './ContactAddForm.styled'
 import { useGetContactsQuery } from '../../redux/contacts/apiService'
 import { useAddContactMutation } from '../../redux/contacts/apiService'
 import { toast } from 'react-hot-toast'
+import Button from 'react-bootstrap/Button'
 
 const styles = {
   input: {
@@ -15,10 +16,6 @@ const styles = {
   button: {
     width: '100px',
     fontSize: '12px',
-    backgroundColor: 'white',
-    borderRadius: '5px',
-    border: '1px solid gray',
-    cursor: 'pointer',
   },
 }
 
@@ -50,7 +47,7 @@ export default function ContactAddForm() {
     <>
       <ContactAddFormEl onSubmit={handleSubmit}>
         <label style={styles.label}>
-          Name
+          Имя контакта
           <input
             style={styles.input}
             type="text"
@@ -61,12 +58,12 @@ export default function ContactAddForm() {
           />
         </label>
         <label style={styles.label}>
-          Number
+          Номер телефона
           <input style={styles.input} type="tel" name="number" required></input>
         </label>
-        <button type="submit" style={styles.button} disabled={isLoading}>
-          Add Contact
-        </button>
+        <Button type="submit" style={styles.button} disabled={isLoading}>
+          Добавить
+        </Button>
       </ContactAddFormEl>
     </>
   )

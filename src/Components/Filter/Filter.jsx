@@ -21,7 +21,7 @@ function Filter() {
   return (
     <FilterEl>
       <label>
-        Find contacts by name
+        Поиск контакта по имени
         <input
           style={styles.input}
           type="text"

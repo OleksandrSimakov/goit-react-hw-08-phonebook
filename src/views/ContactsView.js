@@ -6,6 +6,7 @@ import { useGetContactsQuery } from '../redux/contacts/apiService'
 import { Spinner } from '../Components/Spinner/Spinner'
 import { Toaster } from 'react-hot-toast'
 import { filterSelector } from '../redux/contacts/contacts-selectors'
+import { Container, Row, Col } from 'react-bootstrap'
 
 export default function ContactsView() {
   const { data, isFetching } = useGetContactsQuery()
@@ -13,26 +14,30 @@ export default function ContactsView() {
   const filter = useSelector(filterSelector)
 
   return (
-    <>
-      <h2>Phonebook</h2>
+    <Container>
+      <Row>
+        <Col>
+          <h2>Добавление контакта</h2>
 
-      <ContactAddForm />
+          <ContactAddForm />
 
-      <h2>Contacts</h2>
+          <h2>Список контактов</h2>
 
-      <Filter />
+          <Filter />
 
-      {isFetching && <Spinner />}
+          {isFetching && <Spinner />}
 
-      {data && (
-        <ContactList
-          contacts={data.filter((contact) =>
-            contact.name.toLowerCase().includes(filter),
+          {data && (
+            <ContactList
+              contacts={data.filter((contact) =>
+                contact.name.toLowerCase().includes(filter),
+              )}
+            ></ContactList>
           )}
-        ></ContactList>
-      )}
 
-      <Toaster />
-    </>
+          <Toaster />
+        </Col>
+      </Row>
+    </Container>
   )
 }
